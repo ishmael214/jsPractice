@@ -50,3 +50,25 @@ if (johnsAvg > mikesAvg && maryAvg) {
 }
 
 console.log(maryAvg, mikesAvg, johnsAvg);
+
+// Day 2 take 2
+
+function calculateAge (birthYear) {
+    return 2020 - birthYear;
+}
+
+function yearsTillRetirement (birthYear, name) {
+    const age = calculateAge(birthYear);
+    const retirement = 60 - age;
+    const superRetired = age - 60;
+
+    if (retirement > 0) {
+        console.log('Keep saving money' + ' ' + name + '. You don\'t retire for another' + ' ' + retirement + ' ' + 'years');
+    } else {
+        console.log( name + ',' + ' ' + 'this is how I know you\'re old. You retired' + ' ' + superRetired + ' ' + 'years ago.');
+    }
+
+}
+
+yearsTillRetirement(1942, 'Clancy');
+yearsTillRetirement(1999, 'Ish');
