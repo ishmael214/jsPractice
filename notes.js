@@ -72,3 +72,71 @@ function yearsTillRetirement (birthYear, name) {
 
 yearsTillRetirement(1942, 'Clancy');
 yearsTillRetirement(1999, 'Ish');
+
+
+// Day 3 take 1 
+
+const bills = [48, 124, 268];
+
+const tips = [.20 * bills[0], .15 * bills[1], .10 * bills[2]];
+
+const finalPrice = [(.20 * bills[0]) + 48, (.15 * bills[1]) + 124, (.10 * bills[2]) + 268, ];
+
+
+console.log(tips);
+console.log(finalPrice);
+
+// original function
+function tipCalculator (bill) {
+    if (bill < 50) {
+        console.log(bill * .20);
+    }
+
+    else if (bill < 200 && bill > 100) {
+        console.log(bill * .15);
+    }
+
+    else {
+        console.log(bill * .10);
+    }
+}
+
+tipCalculator(bills[2]);
+
+// more efficient function 
+
+function newTipCalculator (bill) {
+    let percentage
+    
+    if (bill < 50) {
+        percentage = .2
+    }
+
+    else if (bill <= 200 && bill >= 100) {
+        percentage = .15
+    }
+
+    else {
+        percentage = .1
+    }
+
+    return percentage * bill
+}
+
+
+console.log(newTipCalculator(48));
+
+
+const newTips = [newTipCalculator(bills[0]),
+                 newTipCalculator(bills[1]),                          
+                 newTipCalculator(bills[2])]
+
+ console.log(newTips)   
+ 
+ 
+const newFinalPrice = [bills[0] + newTips[0],
+                       bills[1] + newTips[1],
+                       bills[2] + newTips[2] ]
+
+
+console.log(newFinalPrice);
