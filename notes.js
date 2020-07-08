@@ -140,3 +140,43 @@ const newFinalPrice = [bills[0] + newTips[0],
 
 
 console.log(newFinalPrice);
+
+// day 4 take 1
+
+const findBmiMark = function () {
+    return mark.bmi = this.weight / (this.height * this.height)
+}
+
+const findBmiJohn = function () {
+    return john.bmi = this.weight / (this.height * this.height)
+}
+
+const mark = {
+    name: 'mark',
+    weight: 480,
+    height: 13,
+    bmi: findBmiMark
+}
+
+const john = {
+    name: 'john',
+    weight: 745,
+    height: 18.6,
+    bmi: findBmiJohn
+
+}
+
+mark.bmi();
+john.bmi();
+
+
+if (john.bmi > mark.bmi) {
+    console.log(john.name + ' has a higher bmi than' + ' ' + mark.name + ' at a BMI of ' + john.bmi)
+} else {
+    console.log(john.name + ' go getcha ass in the gym right now because ' + mark.name + ' has a higher bmi than you at ' + mark.bmi +'.')
+}
+
+
+
+
+
