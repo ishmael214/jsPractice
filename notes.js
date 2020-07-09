@@ -1,5 +1,7 @@
 // CODING TEST 1
 
+/* BLANKING BEGIN
+
 var markHeight, markBmi, johnHeight, johnBmi, johnMass, markMass;
 
 markHeight = 8;
@@ -251,7 +253,7 @@ console.log(totalTips)
 
 console.log(avg);
 
-*/
+
 
 const markTotalTips = marksRestaurantTips.reduce((accumulator, currentValue) => {
     return accumulator + currentValue
@@ -276,3 +278,89 @@ if (johnAvgTips > markAvgTips) {
 } else {
     console.log(john.name + ' you cheap son of a bitch you couldn\'t afford to tip ' + (markAvgTips - johnAvgTips) + ' more cents to keep up with Mark? I can\'t eat out with you anymore, and  I want a divorce')
 }
+
+
+BLANKING END */
+
+
+let john = {
+    name: 'john',
+    bills: [42, 48, 124, 180, 268],
+    calcTips: function() {
+        this.tips = [];
+        this.totalCost = [];
+        
+        for (let i = 0; i < this.bills.length; i++) {
+            const bills = this.bills[i];
+            let percentage
+            if (bills < 50) {
+                percentage = .2
+            }
+
+            else if (bills >= 50 && bills <= 200) {
+                percentage = .15
+                
+            }
+
+            else {
+                percentage = .1
+            }
+
+            this.tips[i] =  bills * percentage
+            this.totalCost[i] = (bills * percentage) + bills
+        }
+        
+    }
+
+};
+
+let mark = {
+    name: 'mark',
+    bills: [45, 77, 110, 375],
+    calcTips: function() {
+
+        this.tips = [];
+        this.totalCost = [];
+        
+        for (let i = 0; i < this.bills.length; i++) {
+            const bills = this.bills[i];
+            let percentage
+            if (bills < 100) {
+                percentage = .2
+            }
+
+            else if (bills >= 100 && bills <= 300) {
+                percentage = .10
+                
+            }
+
+            else {
+                percentage = .25
+            }
+
+            this.tips[i] =  bills * percentage
+            this.totalCost[i] = (bills * percentage) + bills
+        }
+        
+    }
+
+};
+
+john.calcTips();
+mark.calcTips();
+
+function calcAvgTips(tips) {
+    sum = 0
+    for (let i = 0; i < tips.length; i++) {
+        sum = sum + tips[i];
+    }
+
+    return sum / tips.length
+}
+
+john.averageTip = calcAvgTips(john.tips);
+mark.averageTip = calcAvgTips(mark.tips);
+
+console.log(john);
+console.log(mark);
+
